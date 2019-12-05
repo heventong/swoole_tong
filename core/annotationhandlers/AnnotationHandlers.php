@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\annotations;
+namespace Core\annotationhandlers;
 
 use Core\annotations\Value;
 use Core\annotations\Bean;
@@ -19,7 +19,10 @@ return [
         $container->set($beanName,$instance);
     },
 
-    Value::class=>function(){
-
+    Value::class=>function(\ReflectionProperty $prop,$instance,$self){
+        $env = parse_ini_file(ROOT_PATH.'/env');
+        if(!isset($env[$self->name]) || $self->name == '') return $instance;
+        $prop->setValue($instance,$env[$self->name]);
+        return $instance;
     }
 ];

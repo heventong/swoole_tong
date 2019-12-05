@@ -5,8 +5,8 @@ use Doctrine\Common\Annotations\Annotation\Target;
 
 /**
  * @Annotation
- * @Target({'PROPERTY'})
+ * @Target({"PROPERTY"})
  */
 class Value{
-    public $name = '';
+    public $name = "";
 }
