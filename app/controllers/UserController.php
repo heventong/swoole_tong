@@ -21,6 +21,12 @@ class UserController{
     public function test(){
         return "test";
     }
+    /**
+     * @RequestMapping(value="/user")
+     */
+    public function user(){
+        return "tong";
+    }
 
 
 }

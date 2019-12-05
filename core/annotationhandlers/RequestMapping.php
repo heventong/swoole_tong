@@ -11,7 +11,7 @@ return [
         $router_collector =BeanFactory::getBean('RouterCollector');
 
         $router_collector -> addRouter($request_method,$path,function()use($instance,$method){
-            $method->invoke($instance);
+            return $method->invoke($instance);
         });
         return $instance;
     }
