@@ -1,0 +1,27 @@
+[10-Nov-2019 22:18:36 Asia/Shanghai] PHP Fatal error:  Uncaught Swoole\Exception: failed to listen server port[0.0.0.0:9501], Error: Address already in use[98] in /Data/apps/demo/swoole/swoole_tong/10test.php:5
+Stack trace:
+#0 /Data/apps/demo/swoole/swoole_tong/10test.php(5): Swoole\Server->__construct('0.0.0.0', 9501)
+#1 {main}
+  thrown in /Data/apps/demo/swoole/swoole_tong/10test.php on line 5
+[12-Nov-2019 23:51:47 Asia/Shanghai] PHP Fatal error:  Uncaught Doctrine\Common\Annotations\AnnotationException: [Semantical Error] The annotation "@App\annotations\Bean" in class App\test\MyRedis does not exist, or could not be auto-loaded. in /Data/apps/demo/swoole/swoole_tong/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/AnnotationException.php:54
+Stack trace:
+#0 /Data/apps/demo/swoole/swoole_tong/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/DocParser.php(739): Doctrine\Common\Annotations\AnnotationException::semanticalError('The annotation ...')
+#1 /Data/apps/demo/swoole/swoole_tong/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/DocParser.php(661): Doctrine\Common\Annotations\DocParser->Annotation()
+#2 /Data/apps/demo/swoole/swoole_tong/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/DocParser.php(354): Doctrine\Common\Annotations\DocParser->Annotations()
+#3 /Data/apps/demo/swoole/swoole_tong/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/AnnotationReader.php(218): Doctrine\Common\Annotations\ in /Data/apps/demo/swoole/swoole_tong/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/AnnotationException.php on line 54
+[12-Nov-2019 23:52:15 Asia/Shanghai] PHP Fatal error:  Uncaught Doctrine\Common\Annotations\AnnotationException: [Semantical Error] The annotation "@App\annotations\Bean" in class App\test\MyRedis does not exist, or could not be auto-loaded. in /Data/apps/demo/swoole/swoole_tong/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/AnnotationException.php:54
+Stack trace:
+#0 /Data/apps/demo/swoole/swoole_tong/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/DocParser.php(739): Doctrine\Common\Annotations\AnnotationException::semanticalError('The annotation ...')
+#1 /Data/apps/demo/swoole/swoole_tong/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/DocParser.php(661): Doctrine\Common\Annotations\DocParser->Annotation()
+#2 /Data/apps/demo/swoole/swoole_tong/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/DocParser.php(354): Doctrine\Common\Annotations\DocParser->Annotations()
+#3 /Data/apps/demo/swoole/swoole_tong/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/AnnotationReader.php(218): Doctrine\Common\Annotations\ in /Data/apps/demo/swoole/swoole_tong/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/AnnotationException.php on line 54
+[22-Nov-2019 20:01:48 Asia/Shanghai] PHP Fatal error:  Uncaught Doctrine\Common\Annotations\AnnotationException: [Semantical Error] The annotation "@App\annotations\Bean" in class App\test\MyRedis does not exist, or could not be auto-loaded. in /Data/apps/demo/swoole/swoole_tong/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/AnnotationException.php:54
+Stack trace:
+#0 /Data/apps/demo/swoole/swoole_tong/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/DocParser.php(739): Doctrine\Common\Annotations\AnnotationException::semanticalError('The annotation ...')
+#1 /Data/apps/demo/swoole/swoole_tong/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/DocParser.php(661): Doctrine\Common\Annotations\DocParser->Annotation()
+#2 /Data/apps/demo/swoole/swoole_tong/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/DocParser.php(354): Doctrine\Common\Annotations\DocParser->Annotations()
+#3 /Data/apps/demo/swoole/swoole_tong/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/AnnotationReader.php(218): Doctrine\Common\Annotations\ in /Data/apps/demo/swoole/swoole_tong/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/AnnotationException.php on line 54
+[05-Dec-2019 11:53:56 Asia/Shanghai] PHP Fatal error:  Uncaught Error: Class 'Core\BeanFactory' not found in /Data/apps/demo/swoole/swoole_tong/test.php:7
+Stack trace:
+#0 {main}
+  thrown in /Data/apps/demo/swoole/swoole_tong/test.php on line 7
