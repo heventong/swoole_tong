@@ -46,3 +46,56 @@ Stack trace:
 #0 /Data/apps/demo/swoole/swoole_tong/index.php(12): Swoole\Server->__construct('0.0.0.0', 80)
 #1 {main}
   thrown in /Data/apps/demo/swoole/swoole_tong/index.php on line 12
+[09-Dec-2019 15:55:40 Asia/Shanghai] PHP Fatal error:  Uncaught Swoole\Exception: failed to listen server port[0.0.0.0:9501], Error: Address already in use[98] in /Data/apps/demo/swoole/swoole_tong/index.php:14
+Stack trace:
+#0 /Data/apps/demo/swoole/swoole_tong/index.php(14): Swoole\Server->__construct('0.0.0.0', 9501)
+#1 {main}
+  thrown in /Data/apps/demo/swoole/swoole_tong/index.php on line 14
+[10-Dec-2019 15:39:31 Asia/Shanghai] PHP Fatal error:  Uncaught Doctrine\Common\Annotations\AnnotationException: [Semantical Error] The annotation "@Core\annotations\Bean" in class Core\init\RouterCollector does not exist, or could not be auto-loaded. in /Data/apps/demo/swoole/swoole_tong/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/AnnotationException.php:54
+Stack trace:
+#0 /Data/apps/demo/swoole/swoole_tong/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/DocParser.php(739): Doctrine\Common\Annotations\AnnotationException::semanticalError('The annotation ...')
+#1 /Data/apps/demo/swoole/swoole_tong/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/DocParser.php(661): Doctrine\Common\Annotations\DocParser->Annotation()
+#2 /Data/apps/demo/swoole/swoole_tong/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/DocParser.php(354): Doctrine\Common\Annotations\DocParser->Annotations()
+#3 /Data/apps/demo/swoole/swoole_tong/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/AnnotationReader.php(218): Doctrine\Common\An in /Data/apps/demo/swoole/swoole_tong/vendor/doctrine/annotations/lib/Doctrine/Common/Annotations/AnnotationException.php on line 54
+[10-Dec-2019 15:40:24 Asia/Shanghai] PHP Fatal error:  Uncaught Error: Call to undefined function Core\get_declared_classses() in /Data/apps/demo/swoole/swoole_tong/core/BeanFactory.php:28
+Stack trace:
+#0 /Data/apps/demo/swoole/swoole_tong/index.php(8): Core\BeanFactory::init()
+#1 {main}
+  thrown in /Data/apps/demo/swoole/swoole_tong/core/BeanFactory.php on line 28
+[06-Jan-2020 17:30:37 Asia/Shanghai] PHP Fatal error:  Uncaught Swoole\Exception: failed to listen server port[0.0.0.0:9501], Error: Address already in use[98] in /Data/apps/demo/swoole/swoole_tong/index.php:14
+Stack trace:
+#0 /Data/apps/demo/swoole/swoole_tong/index.php(14): Swoole\Server->__construct('0.0.0.0', 9501)
+#1 {main}
+  thrown in /Data/apps/demo/swoole/swoole_tong/index.php on line 14
+[06-Jan-2020 22:42:56 Asia/Shanghai] PHP Fatal error:  Uncaught Swoole\ExitException: swoole exit in /Data/apps/demo/swoole/swoole_tong/index.php:18
+Stack trace:
+#0 {main}
+  thrown in /Data/apps/demo/swoole/swoole_tong/index.php on line 18
+[06-Jan-2020 22:43:23 Asia/Shanghai] PHP Fatal error:  Uncaught Swoole\ExitException: swoole exit in /Data/apps/demo/swoole/swoole_tong/index.php:18
+Stack trace:
+#0 {main}
+  thrown in /Data/apps/demo/swoole/swoole_tong/index.php on line 18
+[06-Jan-2020 22:43:29 Asia/Shanghai] PHP Fatal error:  Uncaught Swoole\ExitException: swoole exit in /Data/apps/demo/swoole/swoole_tong/index.php:18
+Stack trace:
+#0 {main}
+  thrown in /Data/apps/demo/swoole/swoole_tong/index.php on line 18
+[06-Jan-2020 22:43:31 Asia/Shanghai] PHP Fatal error:  Uncaught Swoole\ExitException: swoole exit in /Data/apps/demo/swoole/swoole_tong/index.php:18
+Stack trace:
+#0 {main}
+  thrown in /Data/apps/demo/swoole/swoole_tong/index.php on line 18
+[06-Jan-2020 22:43:37 Asia/Shanghai] PHP Fatal error:  Uncaught Swoole\ExitException: swoole exit in /Data/apps/demo/swoole/swoole_tong/index.php:18
+Stack trace:
+#0 {main}
+  thrown in /Data/apps/demo/swoole/swoole_tong/index.php on line 18
+[06-Jan-2020 22:43:42 Asia/Shanghai] PHP Fatal error:  Uncaught Swoole\ExitException: swoole exit in /Data/apps/demo/swoole/swoole_tong/index.php:18
+Stack trace:
+#0 {main}
+  thrown in /Data/apps/demo/swoole/swoole_tong/index.php on line 18
+[06-Jan-2020 22:44:24 Asia/Shanghai] PHP Fatal error:  Uncaught Swoole\ExitException: swoole exit in /Data/apps/demo/swoole/swoole_tong/index.php:18
+Stack trace:
+#0 {main}
+  thrown in /Data/apps/demo/swoole/swoole_tong/index.php on line 18
+[06-Jan-2020 22:44:37 Asia/Shanghai] PHP Fatal error:  Uncaught Swoole\ExitException: swoole exit in /Data/apps/demo/swoole/swoole_tong/index.php:18
+Stack trace:
+#0 {main}
+  thrown in /Data/apps/demo/swoole/swoole_tong/index.php on line 18

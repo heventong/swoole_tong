@@ -22,10 +22,10 @@ class UserController{
         return "test";
     }
     /**
-     * @RequestMapping(value="/user")
+     * @RequestMapping(value="/user/{uid:\d+}")
      */
-    public function user(){
-        return "tong";
+    public function user(int $uid){
+        return "tong".$uid;
     }
 
 
