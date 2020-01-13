@@ -18,7 +18,6 @@ class  RouterCollector{
             foreach ($this->routes as $route){
                 $r->addRoute($route['method'], $route['uri'], $route['handler']);
             }
-
         });
     }
 }

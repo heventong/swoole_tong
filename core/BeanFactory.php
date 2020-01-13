@@ -47,11 +47,27 @@ class BeanFactory{
     public static function getBean($name){
         return self::$cotainer->get($name);
     }
+
+    private static function getAllBeanFiles($dir){
+        //./app
+        $ret=[];
+        $files=glob($dir."/*");
+        foreach($files as $file){
+            if(is_dir($file)){ //如果是文件夹，递归
+                $ret=array_merge($ret,self::getAllBeanFiles($file)); //递归合并，防止数组变成嵌套数组
+            }else if(pathinfo($file)["extension"]=="php"){
+                $ret[]=$file;
+            }
+        }
+        //["./app/controllers/Userxxx.php"]
+        return $ret;
+    }
     public static function ScanBeans($scan_dir,$scan_root_namespace){
 
 
-        $files=glob($scan_dir."/*.php");
-        foreach ($files as $file){
+//        $allfiles=glob($scan_dir."/*.php");
+        $allfiles=self::getAllBeanFiles($scan_dir);//支持多级目录扫描
+        foreach ($allfiles as $file){
             require_once $file;
         }
 
