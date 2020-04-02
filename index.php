@@ -15,6 +15,8 @@ $http = new Swoole\Http\Server("0.0.0.0", 9501);
 $http->set(array(
     'worker_num' => 1,
     'daemonize' => false,
+    'enable_static_handler'=>true,
+    'document_root'=>"/Data/apps/www/web-music/app"
 ));
 $http->on('request', function (Request $request,Response $response) use($dispatcher) {
     $myrequest=\Core\http\Request::init($request);

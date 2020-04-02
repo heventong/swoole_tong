@@ -1,4 +1,4 @@
-scan_dir=./app
+scan_dir=/Data/apps/demo/swoole/swoole_tong/app
 scan_root_namespace=App\
 
 version=2.3

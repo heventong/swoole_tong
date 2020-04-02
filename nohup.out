@@ -1,0 +1,9 @@
+[2020-01-18 10:52:14 @16240.0]	WARNING	swSocket_bind(:434): bind(0.0.0.0:9501) failed, Error: Address already in use[98]
+
+Fatal error: Uncaught Swoole\Exception: failed to listen server port[0.0.0.0:9501], Error: Address already in use[98] in /Data/apps/demo/swoole/swoole_tong/core/server/HttpServer.php:14
+Stack trace:
+#0 /Data/apps/demo/swoole/swoole_tong/core/server/HttpServer.php(14): Swoole\Server->__construct('0.0.0.0', 9501)
+#1 /Data/apps/demo/swoole/swoole_tong/boot(9): Core\server\HttpServer->__construct()
+#2 {main}
+  thrown in /Data/apps/demo/swoole/swoole_tong/core/server/HttpServer.php on line 14
+[2020-01-18 10:53:55 #16157.1]	INFO	Server is shutdown now

@@ -11,10 +11,14 @@ class HttpServer{
     private $dispatcher;
     public function __construct()
     {
-        $this->server = new \Swoole\Http\Server("0.0.0.0", 9501);
+        $this->server = new Server("0.0.0.0", 9501);
         $this->server ->set(array(
-            'worker_num' => 8,
-            'daemonize' => false,
+            'worker_num' => 1,
+            'daemonize'=>true,
+//            'daemonize' => false,
+            'document_root'=>ROOT_PATH.'/web/app',
+            'enable_static_handler'=>true,
+            "log_file" => ROOT_PATH.'/runtime/logs/swoole.log'
         ));
         $this->server ->on('request', [$this,"onRequest"]);
         $this->server ->on('Start', [$this,"onStart"]);
@@ -33,6 +37,7 @@ class HttpServer{
         $myresponse=\Core\http\Response::init($response);
         $routeInfo = $this->dispatcher->dispatch($myrequest->getMethod(),$myrequest->getUri() );
         //[1,$handler,$var]
+//var_dump($routeInfo[0],$myrequest->getMethod(),$myrequest->getUri());
         switch ($routeInfo[0]) {
             case \FastRoute\Dispatcher::NOT_FOUND:
                 $response->status(404);
@@ -58,10 +63,10 @@ class HttpServer{
     public function onStart(Server $server){
         cli_set_process_title("tong master");
         $mid= $server->master_pid;
-        file_put_contents("./Tong.pid",$mid);
+        file_put_contents(ROOT_PATH."/Tong.pid",$mid);
     }
     public function onShutDown(Server $server){
-        unlink("./Tong.pid");
+        unlink(ROOT_PATH."/Tong.pid");
     }
 
     public function run(){
