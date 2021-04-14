@@ -1,10 +1,11 @@
 <?php
 namespace Core\server;
 
+use Core\BeanFactory;
 use Core\init\TestProcess;
 use Swoole\Http\Request;
 use Swoole\Http\Response;
-use Swoole\Http\Server;
+use Swoole\WebSocket\Server;
 
 class HttpServer{
     private $server;
@@ -14,10 +15,17 @@ class HttpServer{
         $this->server = new Server("0.0.0.0", 9501);
         $this->server ->set(array(
             'worker_num' => 1,
-            'daemonize'=>true,
+            'daemonize'=>false,
+            "open_websocket_protocol" => true,
+            //心跳检测
+            'heartbeat_check_interval' => 60,
+            'heartbeat_idle_time' => 600,
 //            'daemonize' => false,
             'document_root'=>ROOT_PATH.'/web/app',
             'enable_static_handler'=>true,
+            "enable_coroutine"=> true,
+            'task_enable_coroutine' => true,
+            'redirect_stdin_stdout' => true,
             "log_file" => ROOT_PATH.'/runtime/logs/swoole.log'
         ));
         $this->server ->on('request', [$this,"onRequest"]);
@@ -25,6 +33,34 @@ class HttpServer{
         $this->server ->on('ShutDown', [$this,"onShutDown"]);
         $this->server ->on('WorkerStart', [$this,"OnWorkerStart"]);
         $this->server->on("ManagerStart",[$this,"onManagerStart"]);
+        $this->server->on("open", [$this,"OnOpen"]);
+
+        $this->server->on("message", [$this,"OnMessage"]);
+
+        // $this->server->on('receive', [$this,"OnReceive"]);websocket失效
+
+    }
+
+    public function OnReceive(Server $server, $fd, $reactor_id, $data) {
+        $websocket = $server->ports[0];
+        foreach ($websocket->connections as $_fd) {
+            if ($server->exist($_fd)) {
+                $server->push($_fd, "this is server onReceive");
+            }
+        }
+        $server->send($fd, 'receive: '.$data);
+    }
+    public function OnMessage(Server $server, $frame) {
+//        echo "receive1 from {$frame->fd}:{$frame->data},opcode:{$frame->opcode},fin:{$frame->finish}\n";
+//        $server->push($frame->fd, "this is server OnMessage11");
+        $data = $frame->data;
+        foreach ($server->connections as $fd) {
+            $server->push($fd, $data);//循环广播
+        }
+    }
+    public function OnOpen(Server $server, Request $request) {
+
+//        echo "new WebSocket Client, fd={$request->fd}\n";
     }
     public function OnWorkerStart(Server $server,$wid){
         cli_set_process_title('tong worker');

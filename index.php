@@ -4,6 +4,7 @@ use Swoole\Http\Response;
 
 require_once ('vendor/autoload.php');
 require_once __DIR__."/app/config/define.php"; //自定义配置
+\Swoole\Runtime::enableCoroutine(true);
 \Core\BeanFactory::init();//初始化Bean工厂
 
 

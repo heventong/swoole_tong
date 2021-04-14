@@ -8,4 +8,6 @@ class Users extends Model{
     //指定主键
     protected $primaryKey = 'user_id';
 
+    protected $connection="abc";
+
 }

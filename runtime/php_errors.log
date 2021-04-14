@@ -1,0 +1,1 @@
+[16-Apr-2020 10:09:30 Asia/Shanghai] PHP Warning:  file_get_contents(/Data/apps/demo/swoole/swoole_tong/Tong.pid): failed to open stream: No such file or directory in /Data/apps/demo/swoole/swoole_tong/boot on line 16

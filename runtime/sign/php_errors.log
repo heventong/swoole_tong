@@ -1,0 +1,6 @@
+[16-Apr-2020 09:48:12 Asia/Shanghai] PHP Fatal error:  Uncaught Swoole\Exception: failed to listen server port[0.0.0.0:9501], Error: Address already in use[98] in /Data/apps/demo/swoole/swoole_tong/core/server/HttpServer.php:14
+Stack trace:
+#0 /Data/apps/demo/swoole/swoole_tong/core/server/HttpServer.php(14): Swoole\Server->__construct('0.0.0.0', 9501)
+#1 /Data/apps/demo/swoole/swoole_tong/boot(11): Core\server\HttpServer->__construct()
+#2 {main}
+  thrown in /Data/apps/demo/swoole/swoole_tong/core/server/HttpServer.php on line 14

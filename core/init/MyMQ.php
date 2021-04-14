@@ -6,7 +6,7 @@ use PhpAmqpLib\Message\AMQPMessage;
 use Exception;
 
 /**
- * @Bean
+ * //@Bean
  * @method \Illuminate\Database\Query\Builder table(string  $table,string|null  $connection=null)
  */
 class MyMQ{

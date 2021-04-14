@@ -52,7 +52,7 @@ class Response {
     }
 
     public function end(){
-        $json_convert = ['array'];
+        $json_convert = ['array','object'];
         $ret = $this->getBody();
         if(in_array(gettype($ret),$json_convert)){
             $this->writeHeader("Content-type","application/json;charset=utf-8");
