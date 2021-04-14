@@ -15,7 +15,7 @@ class HttpServer{
         $this->server = new Server("0.0.0.0", 9501);
         $this->server ->set(array(
             'worker_num' => 1,
-            'daemonize'=>false,
+            'daemonize'=>true,
             "open_websocket_protocol" => true,
             //心跳检测
             'heartbeat_check_interval' => 60,
