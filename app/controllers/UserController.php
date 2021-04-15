@@ -86,11 +86,11 @@ class UserController
      */
     public function curd()
     {
-        $user_id = rand(1, 100);
-        $user = ['user_id' => $user_id, 'user_name' => 'tong', 'user_score' => rand(1, 100)];
+        $user_id = rand(1, 1000000000);
+        $user = ['user_id' => $user_id, 'user_name' => 'tong', 'user_score' => rand(1, 1000000000)];
 //        Users::
         $this->db->table('users')->insert($user);
-        $user = ['user_name' => 'to1ng', 'user_score' => rand(1, 100)];
+        $user = ['user_name' => 'to1ng', 'user_score' => rand(1, 1000000000)];
         $this->db->table('users')->where(['user_id' => $user_id])->update($user);
         $res = $this->db->table("users")->get();
         $this->db->table('users')->where(['user_id' => $user_id])->delete();
