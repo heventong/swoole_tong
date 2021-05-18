@@ -19,6 +19,7 @@ class Index {
      * @RequestMapping(value="/index")
      */
     public function index(){
-        return '1';
+        $res= $this->db->table("users")->first();
+        return $res;
     }
 }

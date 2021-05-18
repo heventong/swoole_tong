@@ -36,8 +36,9 @@ class HttpServer{
         $this->server->on("open", [$this,"OnOpen"]);
 
         $this->server->on("message", [$this,"OnMessage"]);
+        $this->server->on("close", [$this,"OnClose"]);
 
-        // $this->server->on('receive', [$this,"OnReceive"]);websocket失效
+         $this->server->on('receive', [$this,"OnReceive"]);//websocket失效
 
     }
 
@@ -50,17 +51,9 @@ class HttpServer{
         }
         $server->send($fd, 'receive: '.$data);
     }
-    public function OnMessage(Server $server, $frame) {
-//        echo "receive1 from {$frame->fd}:{$frame->data},opcode:{$frame->opcode},fin:{$frame->finish}\n";
-//        $server->push($frame->fd, "this is server OnMessage11");
-        $data = $frame->data;
-        foreach ($server->connections as $fd) {
-            $server->push($fd, $data);//循环广播
-        }
-    }
     public function OnOpen(Server $server, Request $request) {
 
-//        echo "new WebSocket Client, fd={$request->fd}\n";
+        echo "new WebSocket Client, fd={$request->fd}\n";
     }
     public function OnWorkerStart(Server $server,$wid){
         cli_set_process_title('tong worker');
@@ -68,6 +61,29 @@ class HttpServer{
         $this->dispatcher = \Core\BeanFactory::getBean('RouterCollector')->getDispatcher();
     }
 
+    public function OnMessage(Server $server, $frame) {
+//        echo "receive1 from {$frame->fd}:{$frame->data},opcode:{$frame->opcode},fin:{$frame->finish}\n";
+//        $server->push($frame->fd, "this is server OnMessage11");
+        $body = $frame->data;
+
+        $data = json_decode($body,true);
+        $routeInfo = $this->dispatcher->dispatch("GET",'/'.$data['action']);
+        $res = '';
+        switch ($routeInfo[0]) {
+            case \FastRoute\Dispatcher::NOT_FOUND:
+                break;
+            case \FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
+                break;
+            case \FastRoute\Dispatcher::FOUND:
+                $handler = $routeInfo[1];
+                $vars=$routeInfo[2];
+                $res= json_encode($handler($vars,[]));
+                break;
+        }
+        foreach ($server->connections as $fd) {
+            $server->push($fd, $res);//循环广播
+        }
+    }
     public function onRequest(Request $request,Response $response){
         $myrequest=\Core\http\Request::init($request);
         $myresponse=\Core\http\Response::init($response);
@@ -103,6 +119,9 @@ class HttpServer{
     }
     public function onShutDown(Server $server){
         unlink(ROOT_PATH."/Tong.pid");
+    }
+    public function OnClose(Server $server, $fd){
+        echo "connection close: {$fd}\n";
     }
 
     public function run(){

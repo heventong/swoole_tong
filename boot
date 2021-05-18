@@ -10,8 +10,8 @@ if($argc == 2){
     if($cmd=='start'){
         $http = new HttpServer();
         $http->run();
-//        $ws = new WebsocketServer();
-//        $ws->run();
+        //$ws = new WebsocketServer();
+        //$ws->run();
     }else if($cmd=='stop'){
         $getpid=intval(file_get_contents(ROOT_PATH."/Tong.pid")); //获取上一次程序运行的 master_id
         if($getpid && trim($getpid)!=0){
