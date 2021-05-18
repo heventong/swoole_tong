@@ -44,7 +44,7 @@ class TestProcess{
                     $this->md5file=$md5_value;
                     echo "reloaded".PHP_EOL;
                 }
-
+                sleep(60);
             }
         });
     }
